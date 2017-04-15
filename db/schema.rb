@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170212063547) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cuisines", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20170212063547) do
     t.integer  "dish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dish_id"], name: "index_food_dishes_on_dish_id"
-    t.index ["food_id"], name: "index_food_dishes_on_food_id"
+    t.index ["dish_id"], name: "index_food_dishes_on_dish_id", using: :btree
+    t.index ["food_id"], name: "index_food_dishes_on_food_id", using: :btree
   end
 
   create_table "foods", force: :cascade do |t|
@@ -42,4 +45,7 @@ ActiveRecord::Schema.define(version: 20170212063547) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dishes", "cuisines"
+  add_foreign_key "food_dishes", "dishes"
+  add_foreign_key "food_dishes", "foods"
 end
