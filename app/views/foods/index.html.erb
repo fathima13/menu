@@ -1,0 +1,15 @@
+<table>
+	<% @m.each do |food| %>
+	<tr><td>NAME:</td>
+<td><%= food.name%></td> 
+<td>ISVEG:</td>
+	<td><%=food.veg %></td>
+<td>CATEGORY</td>
+	<td><%= food.category %></td>
+	<td><%=link_to 'edit',edit_food_url(id:food.id)%></td>
+	<td><%=link_to 'show',food_url(id:food.id)%></td>
+	<td><%=link_to 'destroy',food_url(id:food.id), method: :delete%></td>
+</tr>
+<%end%>
+</table>
+<%=link_to 'new',new_food_url%>

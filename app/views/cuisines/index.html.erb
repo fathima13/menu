@@ -1,0 +1,11 @@
+<table>
+	<% @cuisines.each do |cuisine| %>
+	<tr><td>NAME:</td>
+<td><%= cuisine.name%></td> 
+	<td><%=link_to 'edit',edit_cuisine_url(id:cuisine.id)%></td>
+	<td><%=link_to 'show',cuisine_url(id:cuisine.id)%></td>
+	<td><%=link_to 'destroy',cuisine_url(id:cuisine.id), method: :delete%></td>
+</tr>
+<%end%>
+</table>
+<%=link_to 'new',new_cuisine_url%>

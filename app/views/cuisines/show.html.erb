@@ -1,0 +1,18 @@
+<table>
+<tr><td>NAME:</td>
+<td><%= @cuisine.name%></td></tr> 
+</table>
+<%=form_for [@cuisine, @dish] do |x| %>
+<p>
+	<%=x.label :name%> 
+	<%=x.text_field :name%> <br>
+		<%= x.submit "submit"%>
+</p>
+<%end%>
+<table>
+	<% @dishes.each do |dish| %>
+	<% if dish.persisted? %>
+	<tr><td>NAME:</td> 
+<td><%= dish.name%></td>
+</tr> <%end%><%end%>
+</table>

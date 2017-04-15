@@ -1,0 +1,15 @@
+<%=form_for @m do |x| %>
+<p>
+	<%=x.label :name%> 
+	<%=x.text_field :name%> <br>
+	<%=x.label :veg %> 
+	<%=x.check_box :veg ,{},'true'%><br>
+	<%= x.label :category%>
+    <%= x.radio_button :category, "Vegetables and legumes/beans" %> Vegetables and legumes/beans
+    <%= x.radio_button :category, "Fruit " %> Fruit 
+    <%= x.radio_button :category, "Grains" %> Grains
+     <%= x.radio_button :category, "Meat" %> Meat
+      <%= x.radio_button :category, "Dairy product" %> Dairy product<br />
+	<%= x.submit "submit"%>
+</p>
+<%end%>
