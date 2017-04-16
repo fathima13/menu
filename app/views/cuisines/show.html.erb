@@ -11,8 +11,17 @@
 <%end%>
 <table>
 	<% @dishes.each do |dish| %>
-	<% if dish.persisted? %>
-	<tr><td>NAME:</td> 
-<td><%= dish.name%></td>
-</tr> <%end%><%end%>
+		<% if dish.persisted? %>
+			<tr>
+				<td>NAME:</td> 
+				<td><%= dish.name%></td>
+				<td><%= link_to 'Edit', edit_cuisine_dish_url(@cuisine.id,dish.id) %></td>
+				<td><%=link_to 'show',cuisine_dish_url(@cuisine.id,dish.id)%></td>
+				<td><%=link_to 'delete',cuisine_dish_url(@cuisine.id,dish.id), method: :delete%></td>
+				  
+			</tr>
+		<%end%>
+	<%end%>
 </table>
+				<td><%= link_to 'add some food', new_food_url%></td>
+
