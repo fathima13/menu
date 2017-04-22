@@ -1,3 +1,4 @@
+<h3 style="text-align:center;"> Cuisine </h3>
 <table>
 <tr><td>NAME:</td>
 <td><%= @cuisine.name%></td></tr> 
@@ -23,5 +24,7 @@
 		<%end%>
 	<%end%>
 </table>
-				<td><%= link_to 'add some food', new_food_url%></td>
+
+<%=link_to 'back',cuisines_url%>
+
 
